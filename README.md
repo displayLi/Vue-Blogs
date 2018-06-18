@@ -1,8 +1,8 @@
-# vue 个人博客
+# vue/vue-router/axios 实现个人博客
  
 ## Build Setup
 
-####访问需开启vpn，因为此项目调用的gooleFireBase数据库
+###使用野狗时时数据库
 
 #### Copyright © LINK创意工作室
 

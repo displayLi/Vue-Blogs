@@ -63,6 +63,7 @@
   </div>
 </template>
 <script>
+   import axios from 'axios'
     export default {
         name: "addBlog",
             data() {
@@ -82,8 +83,7 @@
         },
         methods: {
             posts() {
-                this.$http
-                    .post("https://vue-blogs-d3171.firebaseio.com/blogs.json", this.input_datas)
+                    axios.post("/blogs.json", this.input_datas)
                     .then(result => {
                       this.show = true;
                       setTimeout(()=>{

@@ -10,6 +10,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         name:'show-blog',
         data(){
@@ -20,11 +21,12 @@
             }
         },
         created(){
-            this.$http.get('https://vue-blogs-d3171.firebaseio.com/blogs.json')
-            .then(result => {
-                return result.json();
+            axios.get('/blogs.json')
+            .then( reult => {
+                return reult.data;
             })
             .then(data => {
+                console.log(data);
                 var dataArray = [];
                 for( let key in data ){
                     data[key].id = key;

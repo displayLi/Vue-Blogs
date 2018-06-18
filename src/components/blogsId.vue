@@ -11,6 +11,7 @@
     </div>
 </template>
 <script>
+   import axios from 'axios'
 export default {
   name: 'blogsId',
   data() {
@@ -22,18 +23,14 @@ export default {
     }
   },
   created() {
-    this.$http.get('https://vue-blogs-d3171.firebaseio.com/blogs/' + this.id + '.json')
-      .then(data => {
-        return data.json();
-        // console.log(data.json());
-      })
+    axios.get('/blogs/' + this.id + '.json')
       .then(result => {
-        this.blogs = result;
+        this.blogs = result.data;
       })
   },
   methods:{
     deleteBlog(){
-        this.$http.delete('https://vue-blogs-d3171.firebaseio.com/blogs/' + this.id + '.json')
+        axios.delete('/blogs/' + this.id + '.json')
             .then(result => {
                 this.$router.push({path:'/'})
             })
